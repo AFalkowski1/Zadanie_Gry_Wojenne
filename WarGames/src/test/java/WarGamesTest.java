@@ -1,19 +1,18 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 
 public class WarGamesTest {
 
-    private General generalA;
-    private General generalB;
+    private WarGames generalA;
+    private WarGames generalB;
 
     @BeforeEach
     public void setUp() {
-        generalA = new General("General A", 1000);
-        generalB = new General("General B", 1000);
+        generalA = new WarGames("General A", 1000);
+        generalB = new WarGames("General B", 1000);
     }
 
     @Test
@@ -51,7 +50,7 @@ public class WarGamesTest {
         generalA.addSoldier(Rank.MAJOR);
         generalA.saveState("generalA.ser");
 
-        General loadedGeneral = General.loadState("generalA.ser");
+        WarGames loadedGeneral = WarGames.loadState("generalA.ser");
 
         assertEquals(generalA.getName(), loadedGeneral.getName());
         assertEquals(generalA.calculateArmyStrength(), loadedGeneral.calculateArmyStrength());
